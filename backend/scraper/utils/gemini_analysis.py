@@ -4,9 +4,11 @@ import google.generativeai as genai
 import re
 from .db_operations import insert_reviews, read_raw_reviews_from_db
 from rapidfuzz import fuzz
+import os
+from dotenv import load_dotenv
 
-
-GOOGLE_API_KEY = "AIzaSyCuVi-0-rH5uuoCE51OmPom_kjDDprOSFE"
+load_dotenv()
+GOOGLE_API_KEY = os.getenv('GEMINI_API_KEY')
 MAX_TRIES = 3
 
 def find_similar_dish(dish_name, known_dishes, threshold=75):
