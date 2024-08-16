@@ -25,7 +25,6 @@ exceptiongroup==1.2.1
 executing==2.0.1
 fastapi==0.110.3
 frozenlist==1.4.1
--e git+https://github.com/weeturn/aa.git@8e8d83b27afc609c099caa864e0b049c04c6ff53#egg=gemini_functions_agent&subdirectory=my-app\packages\gemini-functions-agent
 gitdb==4.0.11
 GitPython==3.1.43
 google-ai-generativelanguage==0.4.0
