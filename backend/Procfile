@@ -1,1 +1,1 @@
-web: gunicorn eatbright.wsgi
+web: gunicorn backend.eatbright.wsgi
