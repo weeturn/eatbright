@@ -1,1 +1,1 @@
-web: gunicorn backend.eatbright.wsgi
+web: gunicorn eatbright.wsgi:application --chdir backend
