@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-9yszj8g$x6g^yu()+y1$&g!8v#58#d0hy!fhcwtsfyk4y)(0(+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['eatbright.herokuapp.com']
+ALLOWED_HOSTS = ['eatbright.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -59,7 +59,7 @@ ROOT_URLCONF = 'eatbright.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
