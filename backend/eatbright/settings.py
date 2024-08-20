@@ -37,7 +37,7 @@ SECRET_KEY = 'django-insecure-9yszj8g$x6g^yu()+y1$&g!8v#58#d0hy!fhcwtsfyk4y)(0(+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['eatbright.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['eatbright.herokuapp.com', '127.0.0.1', 'eatbright-d662bd1d5622.herokuapp.com']
 
 
 # Application definition
