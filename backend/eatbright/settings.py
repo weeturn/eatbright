@@ -91,7 +91,9 @@ WSGI_APPLICATION = 'eatbright.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL', 'postgres://postgres:asdf1234@127.0.0.1:5432/postgres')
+        default=os.getenv('DATABASE_URL', 'postgres://postgres:asdf1234@127.0.0.1:5432/postgres'),
+        conn_max_age=600,
+        ssl_require=True
     )
 }
 
