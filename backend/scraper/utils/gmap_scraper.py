@@ -48,6 +48,7 @@ class GoogleMapsScraper:
                 menu_bt = wait.until(EC.element_to_be_clickable((By.XPATH, '//button[@data-value=\'排序\']')))
                 menu_bt.click()
                 clicked = True
+                print('Sorted!')
                 time.sleep(3)
             except Exception as e:
                 tries += 1

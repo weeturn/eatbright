@@ -89,6 +89,7 @@ WSGI_APPLICATION = 'eatbright.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# 這是本地的
 # DATABASES = {
 #     'default': dj_database_url.config(
 #         default=os.getenv('DATABASE_URL', 'postgres://postgres:asdf1234@127.0.0.1:5432/postgres'),
@@ -99,7 +100,7 @@ WSGI_APPLICATION = 'eatbright.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL'),  # 移除本地端的fallback
+        default='postgresql://dish_reviews_user:zfC0uScPsPYn1BqTzXkHJJpkAlDTH4yj@dpg-cr42j688fa8c73df6thg-a.singapore-postgres.render.com/dish_reviews',  # 移除本地端的fallback
         conn_max_age=600,
         ssl_require=True
     )
@@ -154,12 +155,13 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'build/static'),
 ]
 
-STATICFILES_DIRS = [
-    os.path.join(REACT_APP_DIR, 'static'),
-]
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+if not DEBUG:
+    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
+    # and renames the files with unique names for each version to support long-term caching
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-PORT = int(os.environ.get('PORT', 8000))
+# PORT = int(os.environ.get('PORT', 8000))
