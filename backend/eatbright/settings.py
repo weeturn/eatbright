@@ -100,7 +100,7 @@ WSGI_APPLICATION = 'eatbright.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://dish_reviews_user:zfC0uScPsPYn1BqTzXkHJJpkAlDTH4yj@dpg-cr42j688fa8c73df6thg-a.singapore-postgres.render.com/dish_reviews',  # 移除本地端的fallback
+        default=os.getenv('DATABASE_URL'),
         conn_max_age=600,
         ssl_require=True
     )
