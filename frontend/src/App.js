@@ -9,10 +9,11 @@ const App = () => {
     const [reviews, setReviews] = useState([]);
     const [topDishes, setTopDishes] = useState([]);
     const [worstDishes, setWorstDishes] = useState([]);
+    const API_URL = process.env.REACT_APP_API_URL;
 
     const handleSearch = async (storeName, googleMapUrl) => {
         try {
-            const scrapeResponse = await axios.post('http://127.0.0.1:8000/api/scraper/', {
+            const scrapeResponse = await axios.post(`${API_URL}/scraper/`, {
                 store_name: storeName,
                 google_map_url: googleMapUrl,
             });
@@ -24,7 +25,7 @@ const App = () => {
                 setTopDishes(scrapeResponse.data.top_dishes);
                 setWorstDishes(scrapeResponse.data.worst_dishes);
             } else {
-                const analyzeResponse = await axios.post('http://127.0.0.1:8000/api/gemini/', {
+                const analyzeResponse = await axios.post(`${API_URL}/gemini/`, {
                     store_id: scrapeResponse.data.store_id,
                 });
     
