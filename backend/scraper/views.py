@@ -12,7 +12,9 @@ from .utils.db_operations import (  # 從 db_operations.py 導入函數
 from .utils.gmap_scraper import GoogleMapsScraper
 from .utils.gemini_analysis import analyze_reviews_and_store_results
 import json
+import logging
 
+logger = logging.getLogger(__name__)
 @csrf_exempt
 def scrape_and_store_reviews(request):
     if request.method == 'POST':

@@ -180,8 +180,12 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['file'],
-            'level': 'ERROR',
+            'level': 'INFO',
             'propagate': True,
         },
     },
 }
+
+print("BASE_DIR:", BASE_DIR)
+print("DEBUG:", DEBUG)
+print("DATABASE_URL:", DATABASES)
